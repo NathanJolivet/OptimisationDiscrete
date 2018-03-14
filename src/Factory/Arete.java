@@ -1,7 +1,7 @@
 package Factory;
 
 public class Arete {
-
+/*
     private Noeud source;
     private Noeud destination;
     private int valeur;
@@ -35,4 +35,6 @@ public class Arete {
     public void setValeur(int valeur) {
         this.valeur = valeur;
     }
+
+*/
 }

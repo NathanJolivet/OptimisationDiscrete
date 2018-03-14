@@ -1,12 +1,11 @@
 package Algorithmes;
 
-import Factory.Graph;
-import Factory.Solution;
+import Factory.*;
 
 public class Tabou implements AlgoStrategy {
 
     @Override
-    public Solution algorithme(Graph graph) {
+    public Solution recherche(Graph graph) {
         return null;
     }
 

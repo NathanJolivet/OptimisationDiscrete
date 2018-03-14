@@ -1,10 +1,9 @@
 package Algorithmes;
 
-import Factory.Graph;
-import Factory.Solution;
+import Factory.*;
 
 public interface AlgoStrategy {
 
-    public Solution algorithme(Graph graph);
+    public Solution recherche(Graph graph);
 
 }
