@@ -13,6 +13,9 @@ public class Main {
 
     public static void main(String[] args) {
         Parser parse = new Parser();
-        parse.lire();
+        parse.remplirTabNoeuds();
+
+
     }
+
 }
