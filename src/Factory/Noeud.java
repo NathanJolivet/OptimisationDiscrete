@@ -45,4 +45,8 @@ public class Noeud {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getDistanceTo(Noeud nDest){
+        return (int) Math.sqrt((Math.pow(nDest.getAbscisse() - this.getAbscisse(), 2 )) + Math.pow(nDest.getOrdonnee() - this.getOrdonnee(), 2));
+    }
 }
