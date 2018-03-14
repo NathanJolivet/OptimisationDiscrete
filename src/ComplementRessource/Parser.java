@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 public class Parser {
 
-    public void lire(){
+    public void remplirTabNoeuds(){
     URL fileUrl = getClass().getClassLoader().getResource("data01.txt");
         if(fileUrl != null) {
         try {
