@@ -16,8 +16,6 @@ public class Main {
         Graph graph1 = new Graph("data02.txt");
         System.out.println(graph1.getSommets());
 
-
-        System.out.println(graph.getSommets());
         System.out.println("data2: " + graph1.getSommets().size() + "\n" + "data1: " + graph.getSommets().size());
 
 
