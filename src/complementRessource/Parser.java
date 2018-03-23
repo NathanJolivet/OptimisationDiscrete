@@ -22,7 +22,7 @@ public class Parser {
         if(fileUrl != null) {
         try {
             Files.lines(Paths.get(fileUrl.toURI())).forEach(line -> temp.add(line));
-            System.out.println(temp);
+            //System.out.println(temp);
             for (int i = 1; i<temp.size(); i++){
                 String[] array = temp.get(i).split(";");
                 Coord.add(new ArrayList<Integer>());
