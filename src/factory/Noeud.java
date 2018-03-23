@@ -49,4 +49,9 @@ public class Noeud {
     public int getDistanceTo(Noeud nDest){
         return (int) Math.sqrt((Math.pow(nDest.getAbscisse() - this.getAbscisse(), 2 )) + Math.pow(nDest.getOrdonnee() - this.getOrdonnee(), 2));
     }
+
+    @Override
+    public String toString() {
+        return "[" + id + ", " + abscisse + ", " + ordonnee + ", " + quantite + "]";
+    }
 }

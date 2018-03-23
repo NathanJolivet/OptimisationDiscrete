@@ -15,10 +15,10 @@ public class Parser {
         return Coord;
     }
 
-    public void remplirTabNoeuds(){
+    public void remplirTabNoeuds(String nomFichier){
         Coord.clear();
         ArrayList<String> temp = new ArrayList<>();
-        URL fileUrl = getClass().getClassLoader().getResource("main/data01.txt");
+        URL fileUrl = getClass().getClassLoader().getResource("ressources/" + nomFichier);
         if(fileUrl != null) {
         try {
             Files.lines(Paths.get(fileUrl.toURI())).forEach(line -> temp.add(line));
