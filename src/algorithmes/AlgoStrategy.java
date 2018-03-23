@@ -1,6 +1,6 @@
-package Algorithmes;
+package algorithmes;
 
-import Factory.*;
+import factory.*;
 
 public interface AlgoStrategy {
 

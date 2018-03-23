@@ -1,7 +1,6 @@
-package Factory;
+package factory;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Solution {
 
