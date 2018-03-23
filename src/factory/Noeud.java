@@ -46,8 +46,8 @@ public class Noeud {
         this.id = id;
     }
 
-    public int getDistanceTo(Noeud nDest){
-        return (int) Math.sqrt((Math.pow(nDest.getAbscisse() - this.getAbscisse(), 2 )) + Math.pow(nDest.getOrdonnee() - this.getOrdonnee(), 2));
+    public double getDistanceTo(Noeud nDest){
+        return  Math.sqrt((Math.pow(nDest.getAbscisse() - this.getAbscisse(), 2 )) + Math.pow(nDest.getOrdonnee() - this.getOrdonnee(), 2));
     }
 
     @Override

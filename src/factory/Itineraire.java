@@ -26,7 +26,7 @@ public class Itineraire {
         itineraire.add(noeud);
     }
 
-    public void addNoeud(Noeud noeud, int i){
+    public void addNoeud(int i, Noeud noeud){
         itineraire.add(i, noeud);
     }
 
