@@ -26,4 +26,13 @@ public class Graph {
         }
 
     }
+
+    @Override
+    public String toString(){
+        String graph = "-----------------------\n";
+        for(int i = 0; i<sommets.size(); i++) {
+            graph += sommets.get(i) + "\n";
+        }
+        return graph + "-----------------------";
+    }
 }
