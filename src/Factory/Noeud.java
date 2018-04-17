@@ -6,6 +6,8 @@ public class Noeud {
     private int abscisse;
     private int ordonnee;
     private int quantite;
+    private boolean etat; //true = visité || false = non visité
+
 
     public Noeud(int i, int x, int y, int q){
         id = i;
@@ -44,6 +46,14 @@ public class Noeud {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean getEtat() {
+        return etat;
+    }
+
+    public void setEtat(boolean etat) {
+        this.etat = etat;
     }
 
     public double getDistanceTo(Noeud nDest){

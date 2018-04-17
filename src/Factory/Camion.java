@@ -2,12 +2,12 @@ package Factory;
 
 public class Camion {
 
-    int indice;
-    int capacite = 100;
-    double distanceParcouru = 0;
-    public Graph graph;
-    public Noeud noeudActuel;
-    Itineraire itineraire = new Itineraire();
+    private int indice;
+    private int capacite = 100;
+    private double distanceParcouru = 0;
+    private Graph graph;
+    private Noeud noeudActuel;
+    private Itineraire itineraire = new Itineraire();
 
     public Camion(int indice, Graph graph){
         this.indice = indice;
