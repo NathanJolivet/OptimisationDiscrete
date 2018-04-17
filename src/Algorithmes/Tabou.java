@@ -1,6 +1,6 @@
-package algorithmes;
+package Algorithmes;
 
-import factory.*;
+import Factory.*;
 
 public class Tabou implements AlgoStrategy {
 

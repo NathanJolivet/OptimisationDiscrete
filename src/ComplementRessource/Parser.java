@@ -1,4 +1,4 @@
-package complementRessource;
+package ComplementRessource;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -18,7 +18,7 @@ public class Parser {
     public void remplirTabNoeuds(String nomFichier){
         Coord.clear();
         ArrayList<String> temp = new ArrayList<>();
-        URL fileUrl = getClass().getClassLoader().getResource("ressources/" + nomFichier);
+        URL fileUrl = getClass().getClassLoader().getResource("Ressources/" + nomFichier);
         if(fileUrl != null) {
         try {
             Files.lines(Paths.get(fileUrl.toURI())).forEach(line -> temp.add(line));

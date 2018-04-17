@@ -1,4 +1,4 @@
-package factory;
+package Factory;
 
 import java.util.ArrayList;
 
@@ -18,31 +18,9 @@ public class Itineraire {
         this.itineraire = itineraire;
     }
 
-    public int getSize(){
-        return itineraire.size();
-    }
-
-    public void addNoeud(Noeud noeud){
-        itineraire.add(noeud);
-    }
-
-    public void addNoeud(int i, Noeud noeud){
-        itineraire.add(i, noeud);
-    }
-
-    public Noeud getNoeud(int i){
-        return(itineraire.get(i));
-    }
-
-    public void deleteNoeud(int i){
-        itineraire.remove(i);
-    }
-
-
-
     public int getCoutTotal(){
         int cout = 0;
-        for(int i = 0; i < this.getSize()-1; i++){
+        for(int i = 0; i < itineraire.size()-1; i++){
             cout += itineraire.get(i).getDistanceTo(itineraire.get(i+1));
         }
         return cout;
