@@ -9,7 +9,7 @@ public class Main {
         Graph graph1 = new Graph("data01.txt");
         System.out.println(graph1.getSommets());
 
-        Graph graph2 = new Graph("data02.txt");
+        /*Graph graph2 = new Graph("data02.txt");
         System.out.println(graph2.getSommets());
 
         System.out.println("data1: " + graph1.getSommets().size() + "\n" + "data2: " + graph2.getSommets().size());
@@ -21,13 +21,20 @@ public class Main {
         System.out.println(graph1);
         System.out.println(graph2);
 
-        Solution solInitiale1 = graph1.getSolutionInitiale();
-        System.out.println(solInitiale1);
-        System.out.println(solInitiale1.getCoutTotal() + "\n\n");
+*/
 
-        Solution solInitiale2 = graph2.getSolutionInitiale();
+        for(int i = 0; i <100; i++){
+            Solution solInitiale1 = graph1.getSolutionInitiale();
+            System.out.println(solInitiale1);
+            System.out.println(solInitiale1.getCoutTotal() + "\n\n");
+            System.out.println("eeeeeeeeeeeeeee" + solInitiale1.getVoisinage(3));
+        }
+
+
+
+       /* Solution solInitiale2 = graph2.getSolutionInitiale();
         System.out.println(solInitiale2);
-        System.out.println(solInitiale2.getCoutTotal());
+        System.out.println(solInitiale2.getCoutTotal());*/
 
         Graph graph3 = new Graph("data03.txt");
         Graph graph4 = new Graph("data04.txt");
