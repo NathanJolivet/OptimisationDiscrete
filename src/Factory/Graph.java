@@ -8,12 +8,15 @@ public class Graph {
 
     private Parser parse = new Parser();
     ArrayList<Noeud> sommets = new ArrayList<>();
+    String nom;
 
     public ArrayList<Noeud> getSommets() {
         return sommets;
     }
 
-    public Graph(String nomFichier){
+    public Graph(String nomFichier, String nomGraph){
+
+        nom = nomGraph;
 
         parse.remplirTabNoeuds(nomFichier);
 
@@ -70,7 +73,7 @@ public class Graph {
 
     @Override
     public String toString(){
-        String graph = "-------------------------\n";
+        String graph = "-------------------------\n" + nom + ":\n";
         for(int i = 0; i<sommets.size(); i++) {
             graph += "\t" + sommets.get(i) + "\n";
         }
