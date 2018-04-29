@@ -1,6 +1,7 @@
 package Main;
 
 import Factory.Graph;
+import Factory.Solution;
 
 public class Main {
 
@@ -20,6 +21,9 @@ public class Main {
 
         System.out.println(graph1);
         System.out.println(graph2);
+
+        Solution sol = new Solution();
+        sol.getVoisinage(1);
 
     }
 
