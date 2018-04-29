@@ -29,6 +29,25 @@ public class Main {
         System.out.println(solInitiale2);
         System.out.println(solInitiale2.getCoutTotal());
 
+        Graph graph3 = new Graph("data03.txt");
+        Graph graph4 = new Graph("data04.txt");
+        Graph graph5 = new Graph("data05.txt");
+
+        /* //TODO TEST DES AUTRES GRAPH (fonctionne)
+        System.out.println(graph3);
+        System.out.println(graph3.getSolutionInitiale());
+        System.out.println(graph3.getSolutionInitiale().getCoutTotal());
+        System.out.println(graph4);
+        System.out.println(graph3.getSolutionInitiale());
+        System.out.println(graph3.getSolutionInitiale().getCoutTotal());
+        System.out.println(graph5);
+        System.out.println(graph3.getSolutionInitiale());
+        System.out.println(graph3.getSolutionInitiale().getCoutTotal());
+*/
+
+
+
+
 
     }
 
