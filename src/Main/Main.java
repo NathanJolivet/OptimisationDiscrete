@@ -6,10 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Graph graph1 = new Graph("data01.txt");
+        Graph graph1 = new Graph("data01.txt", "graph1");
         System.out.println(graph1.getSommets());
 
-        Graph graph2 = new Graph("data02.txt");
+        Graph graph2 = new Graph("data02.txt", "graph2");
         System.out.println(graph2.getSommets());
 
         System.out.println("data1: " + graph1.getSommets().size() + "\n" + "data2: " + graph2.getSommets().size());
@@ -29,11 +29,12 @@ public class Main {
         System.out.println(solInitiale2);
         System.out.println(solInitiale2.getCoutTotal());
 
+        /* //TODO TEST DES AUTRES GRAPH (fonctionne)
         Graph graph3 = new Graph("data03.txt");
         Graph graph4 = new Graph("data04.txt");
         Graph graph5 = new Graph("data05.txt");
 
-        /* //TODO TEST DES AUTRES GRAPH (fonctionne)
+
         System.out.println(graph3);
         System.out.println(graph3.getSolutionInitiale());
         System.out.println(graph3.getSolutionInitiale().getCoutTotal());
