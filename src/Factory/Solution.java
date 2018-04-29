@@ -14,7 +14,7 @@ public class Solution {
     }
 
     public double getCoutTotal(){
-        int cout = 0;
+        double cout = 0;
         for(int i = 0; i < solution.size(); i++){
             ArrayList<Noeud> itineraire = solution.get(i);
             for(int j = 0; j < itineraire.size()-1; j++){
