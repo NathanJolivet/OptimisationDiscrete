@@ -1,6 +1,7 @@
 package Factory;
 
 import ComplementRessource.Parser;
+import java.util.Random;
 
 import java.util.ArrayList;
 
@@ -78,6 +79,41 @@ public class Graph {
             graph += "\t" + sommets.get(i) + "\n";
         }
         return graph + "-------------------------";
+    }
+
+    public Solution recuitSimule(int n1, int n2){
+        Random random = new Random();
+        Solution x = this.getSolutionInitiale();
+        double t = 100;
+        Solution xmin = x;
+        for(int i = 0; i < n1; i++){
+            for (int j = 0 ; j < n2; j++){
+                int n = 20;
+                int rand1 = random.nextInt(n);
+                Solution y = x.getVoisinage(n).get(rand1);
+                double deltaf = y.getCoutTotal() - x.getCoutTotal();
+                if(deltaf <= 0){
+                    x = y;
+                    if(x.getCoutTotal() < xmin.getCoutTotal()){
+                        xmin = x;
+                    }
+
+                }
+                else{
+                    int p = random.nextInt(1);
+                    if(p < Math.exp(-(deltaf)/t)){
+                        x = y;
+                    }
+                }
+            }
+            decroissTemp(t);
+        }
+
+        return xmin;
+    }
+
+    public static double decroissTemp(double t){
+        return t*0.5;
     }
 
 
