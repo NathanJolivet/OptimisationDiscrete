@@ -39,10 +39,6 @@ public class Solution {
 
     //TODO A FAIRE
     public ArrayList<Solution> getVoisinage(int nbVoisinage){
-        
-        return null;
-    }
-/*    public ArrayList<Solution> getVoisinage(int nbVoisinage){
         Random r = new Random();
         boolean aRefaire = false;
         int tailleSol = this.solution.size();           // le nombre d'itinéraires
@@ -61,18 +57,18 @@ public class Solution {
 
             do {
                 do {
-                capacite = new ArrayList<>();
-                solution2 = new Solution();
+                    capacite = new ArrayList<>();
+                    solution2 = new Solution();
 
-                iti1 = r.nextInt(tailleSol);                        //quel itinéraire on prend en premier
-                tailleIti1 = this.solution.get(iti1).size();       // taille itinéraire
-                if(tailleIti1 <= 3){
-                    changeStart1 = 1;
-                }
-                else{
-                    changeStart1 = r.nextInt(tailleIti1 - 3);         //premier noeud à changer (du premier élément)
-                }
-                if(changeStart1 < 1) changeStart1 = 1;
+                    iti1 = r.nextInt(tailleSol);                        //quel itinéraire on prend en premier
+                    tailleIti1 = this.solution.get(iti1).size();       // taille itinéraire
+                    if(tailleIti1 <= 3){
+                        changeStart1 = 1;
+                    }
+                    else{
+                        changeStart1 = r.nextInt(tailleIti1 - 3);         //premier noeud à changer (du premier élément)
+                    }
+                    if(changeStart1 < 1) changeStart1 = 1;
 
                     lgChange = 1 + r.nextInt(3 - 1);
                 }     //longueur du changement
@@ -141,7 +137,7 @@ public class Solution {
             while( aRefaire || !capaOk);
             result.add(solution2);
 
-            //System.out.println("rrrrr" + solution2);
+            System.out.println("rrrrr" + solution2);
 
 
         }
@@ -183,7 +179,7 @@ public class Solution {
 
         return solutionIntermediaire;
     }
-*/
+
     @Override
     public String toString(){
         String stringSol = "Solution: \n";
