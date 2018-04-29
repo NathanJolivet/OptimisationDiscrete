@@ -14,6 +14,7 @@ public class Noeud {
         abscisse = x;
         ordonnee = y;
         quantite = q;
+        etat = false;
     }
 
     public int getAbscisse() {
@@ -49,11 +50,19 @@ public class Noeud {
     }
 
     public boolean getEtat() {
-        return etat;
+            return etat;
     }
 
-    public void setEtat(boolean etat) {
-        this.etat = etat;
+    public void setEtatVisite() {
+        if(this.getId() != 0) {
+            this.etat = true;
+        }
+    }
+
+    public void setEtatNonVisite() {
+        if(this.getId() != 0) {
+            this.etat = false;
+        }
     }
 
     public double getDistanceTo(Noeud nDest){

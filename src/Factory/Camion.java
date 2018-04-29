@@ -1,5 +1,7 @@
 package Factory;
 
+import java.util.ArrayList;
+
 public class Camion {
 
     private int indice;
@@ -7,12 +9,12 @@ public class Camion {
     private double distanceParcouru = 0;
     private Graph graph;
     private Noeud noeudActuel;
-    private Itineraire itineraire = new Itineraire();
+    private ArrayList<Noeud> itineraire = new ArrayList();
 
     public Camion(int indice, Graph graph){
         this.indice = indice;
         this.graph = graph;
-        itineraire.getItineraire().add(graph.getSommets().get(0));
+        itineraire.add(graph.getSommets().get(0));
         noeudActuel = graph.getSommets().get(0);
 
     }
@@ -37,11 +39,11 @@ public class Camion {
         distanceParcouru += distanceNoeudSuivant;
     }
 
-    public Itineraire getItineraire() {
+    public ArrayList<Noeud> getItineraire() {
         return itineraire;
     }
 
-    public void setItineraire(Itineraire itineraire) {
+    public void setItineraire(ArrayList<Noeud> itineraire) {
         this.itineraire = itineraire;
     }
 

@@ -27,18 +27,21 @@ public class Graph {
 
     }
 
-    @Override
-    public String toString(){
-        String graph = "-----------------------\n";
-        for(int i = 0; i<sommets.size(); i++) {
-            graph += sommets.get(i) + "\n";
-        }
-        return graph + "-----------------------";
-    }
-
     //TODO A FAIRE
     public Solution getSolutionInitiale(){
 
         return null;
     }
+
+
+    @Override
+    public String toString(){
+        String graph = "-------------------------\n";
+        for(int i = 0; i<sommets.size(); i++) {
+            graph += "\t" + sommets.get(i) + "\n";
+        }
+        return graph + "-------------------------";
+    }
+
+
 }

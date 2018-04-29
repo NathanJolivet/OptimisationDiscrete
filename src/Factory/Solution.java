@@ -4,39 +4,39 @@ import java.util.ArrayList;
 
 public class Solution {
 
-    private int id;
-    private ArrayList<Itineraire> solution = new ArrayList<>();
+    private ArrayList<ArrayList<Noeud>> solution = new ArrayList<>();
 
-    public Solution(int id){
-        this.id = id;
+    public Solution(){
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public ArrayList<Itineraire> getSolution() {
+    public ArrayList<ArrayList<Noeud>> getSolution() {
         return solution;
     }
 
     public int getCoutTotal(){
         int cout = 0;
         for(int i = 0; i < solution.size()-1; i++){
-            cout += solution.get(i).getCoutTotal();
+            ArrayList<Noeud> itineraire = solution.get(i);
+            for(int j = 0; j < itineraire.size()-1; j++){
+                cout += itineraire.get(j).getDistanceTo(itineraire.get(j+1));
+            }
         }
         return cout;
     }
 
     //TODO A FAIRE
     public ArrayList<Solution> getVoisinage(){
-        
+        System.out.println("solution");
         return null;
     }
 
     @Override
     public String toString(){
-
-        return null;
+        String stringSol = "Solution: \n";
+        for(int i = 0; i < solution.size(); i++){
+            stringSol += "\t" + solution.get(i) + "\n";
+        }
+        return stringSol;
     }
 
 
