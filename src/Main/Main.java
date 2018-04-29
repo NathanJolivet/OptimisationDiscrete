@@ -5,9 +5,6 @@ import Factory.Graph;
 public class Main {
 
     public static void main(String[] args) {
-        /*Parser parse = new Parser();
-        parse.remplirTabNoeuds("data01.txt");
-        System.out.println(parse.getCoord()); */
 
         Graph graph1 = new Graph("data01.txt");
         System.out.println(graph1.getSommets());
@@ -23,8 +20,6 @@ public class Main {
 
         System.out.println(graph1);
         System.out.println(graph2);
-
-
 
     }
 
