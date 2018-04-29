@@ -35,4 +35,10 @@ public class Graph {
         }
         return graph + "-----------------------";
     }
+
+    //TODO A FAIRE
+    public Solution getSolutionInitiale(){
+
+        return null;
+    }
 }

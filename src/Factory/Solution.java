@@ -27,10 +27,17 @@ public class Solution {
         return cout;
     }
 
+    //TODO A FAIRE
     public ArrayList<Solution> getVoisinage(){
+        
         return null;
     }
 
+    @Override
+    public String toString(){
+
+        return null;
+    }
 
 
 }
