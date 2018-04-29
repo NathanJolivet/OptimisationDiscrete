@@ -37,6 +37,10 @@ public class Solution {
 
     //TODO A FAIRE
     public ArrayList<Solution> getVoisinage(int nbVoisinage){
+        
+        return null;
+    }
+/*    public ArrayList<Solution> getVoisinage(int nbVoisinage){
         Random r = new Random();
         int tailleSol = this.solution.size();           // le nombre d'itinéraires
         ArrayList<Solution> result = new ArrayList<>();
@@ -102,7 +106,7 @@ public class Solution {
             while(!capaOk);
             result.add(solution2);
 
-            System.out.println("rrrrr" + solution2);
+            //System.out.println("rrrrr" + solution2);
 
 
         }
@@ -144,7 +148,7 @@ public class Solution {
 
         return solutionIntermediaire;
     }
-
+*/
     @Override
     public String toString(){
         String stringSol = "Solution: \n";

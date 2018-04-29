@@ -2,6 +2,8 @@ package Main;
 
 import Factory.*;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -23,12 +25,19 @@ public class Main {
 
 */
 
-        for(int i = 0; i <100; i++){
-            Solution solInitiale1 = graph1.getSolutionInitiale();
-            System.out.println(solInitiale1);
-            System.out.println(solInitiale1.getCoutTotal() + "\n\n");
-            System.out.println("eeeeeeeeeeeeeee" + solInitiale1.getVoisinage(3));
-        }
+
+        Solution solInitiale1 = graph1.getSolutionInitiale();
+        System.out.println(solInitiale1);
+        System.out.println(solInitiale1.getCoutTotal() + "\n\n");
+        Solution s = graph1.recuitSimule(10,10);
+        System.out.println(s);
+        System.out.println(s.getCoutTotal());
+        /*
+        ArrayList<Solution> voisins = solInitiale1.getVoisinage(3);
+        System.out.println(voisins);
+        */
+
+
 
 
 
