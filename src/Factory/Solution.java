@@ -26,6 +26,7 @@ public class Solution {
 
     //TODO A FAIRE
     public ArrayList<Solution> getVoisinage(){
+
         return null;
     }
 
