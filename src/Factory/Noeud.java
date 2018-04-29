@@ -6,7 +6,7 @@ public class Noeud {
     private int abscisse;
     private int ordonnee;
     private int quantite;
-    private boolean etat; //true = visité || false = non visité
+    private boolean etatVisite; //true = visité || false = non visité
 
 
     public Noeud(int i, int x, int y, int q){
@@ -14,7 +14,7 @@ public class Noeud {
         abscisse = x;
         ordonnee = y;
         quantite = q;
-        etat = false;
+        etatVisite = false;
     }
 
     public int getAbscisse() {
@@ -49,19 +49,19 @@ public class Noeud {
         this.id = id;
     }
 
-    public boolean getEtat() {
-            return etat;
+    public boolean getEtatVisite() {
+            return etatVisite;
     }
 
     public void setEtatVisite() {
         if(this.getId() != 0) {
-            this.etat = true;
+            this.etatVisite = true;
         }
     }
 
     public void setEtatNonVisite() {
         if(this.getId() != 0) {
-            this.etat = false;
+            this.etatVisite = false;
         }
     }
 

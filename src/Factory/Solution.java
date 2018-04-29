@@ -14,9 +14,9 @@ public class Solution {
         return solution;
     }
 
-    public int getCoutTotal(){
-        int cout = 0;
-        for(int i = 0; i < solution.size()-1; i++){
+    public double getCoutTotal(){
+        double cout = 0;
+        for(int i = 0; i < solution.size(); i++){
             ArrayList<Noeud> itineraire = solution.get(i);
             for(int j = 0; j < itineraire.size()-1; j++){
                 cout += itineraire.get(j).getDistanceTo(itineraire.get(j+1));
