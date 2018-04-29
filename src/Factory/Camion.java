@@ -6,16 +6,15 @@ public class Camion {
 
     private int indice;
     private int capacite = 100;
-    private double distanceParcouru = 0;
-    private Graph graph;
+    //private double distanceParcouru = 0;
+    private Noeud noeudPrecedent;
     private Noeud noeudActuel;
     private ArrayList<Noeud> itineraire = new ArrayList();
 
-    public Camion(int indice, Graph graph){
+    public Camion(int indice, Noeud noeudInitial){
         this.indice = indice;
-        this.graph = graph;
-        itineraire.add(graph.getSommets().get(0));
-        noeudActuel = graph.getSommets().get(0);
+        itineraire.add(noeudInitial);
+        noeudActuel = noeudInitial;
 
     }
 
@@ -31,14 +30,16 @@ public class Camion {
         capacite -= noeudActuel.getQuantite();
     }
 
+    /*
     public double getDistanceParcouru() {
         return distanceParcouru;
     }
 
-    public void modifDistanceParcouru(double distanceNoeudSuivant) {
-        distanceParcouru += distanceNoeudSuivant;
+    public void modifDistanceParcouru() {
+        distanceParcouru += noeudPrecedent.getDistanceTo(noeudActuel);
     }
 
+    */
     public ArrayList<Noeud> getItineraire() {
         return itineraire;
     }
@@ -53,5 +54,21 @@ public class Camion {
 
     public void setNoeudActuel(Noeud noeudActuel) {
         this.noeudActuel = noeudActuel;
+    }
+
+    public Noeud getNoeudPrecedent() {
+        return noeudPrecedent;
+    }
+
+    public void setNoeudPrecedent(Noeud noeudPrecedent) {
+        this.noeudPrecedent = noeudPrecedent;
+    }
+
+    public void addNoeud(Noeud noeud){
+        this.getItineraire().add(noeud);
+        this.setNoeudPrecedent(noeudActuel);
+        this.setNoeudActuel(noeud);
+        this.modifCapacite();
+        //this.modifDistanceParcouru();
     }
 }

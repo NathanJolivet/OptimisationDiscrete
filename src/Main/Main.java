@@ -1,6 +1,6 @@
 package Main;
 
-import Factory.Graph;
+import Factory.*;
 
 public class Main {
 
@@ -20,6 +20,15 @@ public class Main {
 
         System.out.println(graph1);
         System.out.println(graph2);
+
+        Solution solInitiale1 = graph1.getSolutionInitiale();
+        System.out.println(solInitiale1);
+        System.out.println(solInitiale1.getCoutTotal() + "\n\n");
+
+        Solution solInitiale2 = graph2.getSolutionInitiale();
+        System.out.println(solInitiale2);
+        System.out.println(solInitiale2.getCoutTotal());
+
 
     }
 
