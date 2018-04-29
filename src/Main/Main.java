@@ -23,7 +23,7 @@ public class Main {
 
 */
 
-        for(int i = 0; i <100; i++){
+        for(int i = 0; i <10; i++){
             Solution solInitiale1 = graph1.getSolutionInitiale();
             System.out.println(solInitiale1);
             System.out.println(solInitiale1.getCoutTotal() + "\n\n");
