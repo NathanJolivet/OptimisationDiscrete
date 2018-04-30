@@ -31,7 +31,7 @@ public class Solution {
         return cout;
     }
 
-    public ArrayList<Solution> getVoisinage(int nbVoisin){
+        public ArrayList<Solution> getVoisinage(int nbVoisin){
         Random random = new Random();
         ArrayList<Solution> voisins = new ArrayList<>();
 
@@ -98,7 +98,7 @@ public class Solution {
 
 
 
-                //On verifie que la solution respecte les contraintes: C <= 100
+                //On vérifie que la solution respecte les contraintes: C <= 100
                 verif = true;
                 for(int a = 0; a < voisin.getSolution().size(); a++){
                     int capaciteItineraire = 0;
@@ -110,7 +110,7 @@ public class Solution {
                     }
                 }
 
-                //Si les contraintes sont respectés, on ajoute la solution dans la liste des voisins
+                //Si les contraintes sont respectées, on ajoute la solution dans la liste des voisins
                 if( verif == true){
                     voisins.add(voisin);
                 }
