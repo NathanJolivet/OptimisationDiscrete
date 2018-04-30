@@ -23,9 +23,10 @@ public class Main {
         System.out.println("cout de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
         System.out.println("-------------------------------FIN RECUIT SIMULE-------------------------------");
 
-        System.out.println(solInitiale1.getVoisinage(3) + "\n\n");
+        System.out.println(solInitiale1.getVoisinage(1) + "\n\n");
         System.out.println(solInitiale1);
 
+        graph1.algoGenetique();
 
 
 

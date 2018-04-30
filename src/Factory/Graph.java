@@ -126,10 +126,19 @@ public class Graph {
         //Remplissage population
         Solution solutionInitiale = this.getSolutionInitiale();
         population.add(solutionInitiale);
-        for(int i = 0; i < nbPopulation; i++){
-
+        for(int i = 0; i < nbPopulation - 1; i++){
+            Solution voisinDuPrecedent;
+            do{
+                voisinDuPrecedent = population.get(i).getVoisinage(1).get(0);
+            }while(population.contains(voisinDuPrecedent));
+            //System.out.println(voisinDuPrecedent);
+            //System.out.println(voisinDuPrecedent.getCoutTotal());
+            population.add(voisinDuPrecedent);
         }
+
         //Reproduction
+
+
 
         return null;
     }
