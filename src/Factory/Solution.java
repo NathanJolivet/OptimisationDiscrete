@@ -50,13 +50,15 @@ public class Solution {
                 do {
                     itineraire2 = random.nextInt(voisin.getSolution().size());
                 } while (itineraire2 == itineraire1);
-                int nbInvertions = 0;
+                int nbInvertions1 = 0;
+                int nbInvertions2 = 0;
                 int x = 0;
                 int y = 0;
                 do {
-                    nbInvertions = random.nextInt(3) + 1;
-                    x = voisin.getSolution().get(itineraire1).size() - nbInvertions - 2;
-                    y = voisin.getSolution().get(itineraire2).size() - nbInvertions - 2;
+                    nbInvertions1 = random.nextInt(3) + 1;
+                    nbInvertions2 = random.nextInt(3) + 1;
+                    x = voisin.getSolution().get(itineraire1).size() - nbInvertions1 - 2;
+                    y = voisin.getSolution().get(itineraire2).size() - nbInvertions2 - 2;
                 } while ((x < 0) || (y < 0));
                 int debutEchangeFrom1 = 0;
                 int debutEchangeFrom2 = 0;
@@ -74,13 +76,27 @@ public class Solution {
                 }
 
                 //Echange des noeuds entre les deux itinéraires
-                for (int j = 0; j < nbInvertions; j++) {
-                    Noeud noeudFrom1 = voisin.getSolution().get(itineraire1).get(debutEchangeFrom1 + j);
-                    Noeud noeudFrom2 = voisin.getSolution().get(itineraire2).get(debutEchangeFrom2 + j);
-                    Noeud noeud_a_Echanger = noeudFrom1;
-                    voisin.getSolution().get(itineraire1).set(debutEchangeFrom1 + j, noeudFrom2);
-                    voisin.getSolution().get(itineraire2).set(debutEchangeFrom2 + j, noeud_a_Echanger);
+
+                ArrayList<Noeud> noeud_a_Echanger1 = new ArrayList<>();
+                for (int j1 = 0; j1 < nbInvertions1; j1++) {
+                    Noeud noeudFrom1 = voisin.getSolution().get(itineraire1).get(debutEchangeFrom1);
+                    noeud_a_Echanger1.add(noeudFrom1);
+                    voisin.getSolution().get(itineraire1).remove(debutEchangeFrom1);
                 }
+
+
+                for (int j2 = 0; j2 < nbInvertions2; j2++) {
+                    Noeud noeudFrom2 = voisin.getSolution().get(itineraire2).get(debutEchangeFrom2);
+                    voisin.getSolution().get(itineraire1).add(debutEchangeFrom1 + j2, noeudFrom2);
+                    voisin.getSolution().get(itineraire2).remove(debutEchangeFrom2);
+                }
+
+                for (int j3 = 0; j3< nbInvertions1; j3++){
+                    voisin.getSolution().get(itineraire2).add(debutEchangeFrom2 + j3, noeud_a_Echanger1.get(j3));
+                }
+
+
+
 
                 //On verifie que la solution respecte les contraintes: C <= 100
                 verif = true;
