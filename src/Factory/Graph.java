@@ -1,6 +1,8 @@
 package Factory;
 
 import ComplementRessource.Parser;
+
+import java.lang.reflect.Array;
 import java.util.Random;
 
 import java.util.ArrayList;
@@ -88,7 +90,7 @@ public class Graph {
         Solution xmin = x;
         for(int i = 0; i < n1; i++){
             for (int j = 0 ; j < n2; j++){
-                int n = 20;
+                int n = 30;
                 int rand1 = random.nextInt(n);
                 Solution y = x.getVoisinage(n).get(rand1);
                 double deltaf = y.getCoutTotal() - x.getCoutTotal();
@@ -116,5 +118,20 @@ public class Graph {
         t *= 0.5;
     }
 
+    public Solution algoGenetique(){
+
+        ArrayList<Solution> population = new ArrayList<>();
+        int nbPopulation = 100;
+
+        //Remplissage population
+        Solution solutionInitiale = this.getSolutionInitiale();
+        population.add(solutionInitiale);
+        for(int i = 0; i < nbPopulation; i++){
+
+        }
+        //Reproduction
+
+        return null;
+    }
 
 }
