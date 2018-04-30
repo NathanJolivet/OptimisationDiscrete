@@ -1,5 +1,7 @@
 package Factory;
 
+import sun.java2d.pipe.AAShapePipe;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -14,6 +16,10 @@ public class Solution {
         return solution;
     }
 
+    public void setSolution(ArrayList<ArrayList<Noeud>> solution) {
+        this.solution = solution;
+    }
+
     public double getCoutTotal(){
         double cout = 0;
         for(int i = 0; i < solution.size(); i++){
@@ -25,6 +31,96 @@ public class Solution {
         return cout;
     }
 
+    public ArrayList<Solution> getVoisinage(int nbVoisin){
+        Random random = new Random();
+        ArrayList<Solution> voisins = new ArrayList<>();
+
+        for(int i = 0; i < nbVoisin; i++){
+
+            boolean verif = false;
+
+            while(!verif) {
+
+                Solution voisin = new Solution();
+                voisin.setSolution(this.remplissageVoisin());
+
+                // Choix de nos randoms
+                int itineraire1 = random.nextInt(voisin.getSolution().size());
+                int itineraire2 = 0;
+                do {
+                    itineraire2 = random.nextInt(voisin.getSolution().size());
+                } while (itineraire2 == itineraire1);
+                int nbInvertions = 0;
+                int x = 0;
+                int y = 0;
+                do {
+                    nbInvertions = random.nextInt(3) + 1;
+                    x = voisin.getSolution().get(itineraire1).size() - nbInvertions - 2;
+                    y = voisin.getSolution().get(itineraire2).size() - nbInvertions - 2;
+                } while ((x < 0) || (y < 0));
+                int debutEchangeFrom1 = 0;
+                int debutEchangeFrom2 = 0;
+                if (x == 0) {
+                    debutEchangeFrom1 = 1;
+                }
+                if (y == 0) {
+                    debutEchangeFrom2 = 1;
+                }
+                if (x > 0) {
+                    debutEchangeFrom1 = random.nextInt(x) + 1;
+                }
+                if (y > 0) {
+                    debutEchangeFrom2 = random.nextInt(y) + 1;
+                }
+
+                //Echange des noeuds entre les deux itinéraires
+                for (int j = 0; j < nbInvertions; j++) {
+                    Noeud noeudFrom1 = voisin.getSolution().get(itineraire1).get(debutEchangeFrom1 + j);
+                    Noeud noeudFrom2 = voisin.getSolution().get(itineraire2).get(debutEchangeFrom2 + j);
+                    Noeud noeud_a_Echanger = noeudFrom1;
+                    voisin.getSolution().get(itineraire1).set(debutEchangeFrom1 + j, noeudFrom2);
+                    voisin.getSolution().get(itineraire2).set(debutEchangeFrom2 + j, noeud_a_Echanger);
+                }
+
+                //On verifie que la solution respecte les contraintes: C <= 100
+                verif = true;
+                for(int a = 0; a < voisin.getSolution().size(); a++){
+                    int capaciteItineraire = 0;
+                    for(int b = 0; b < voisin.getSolution().get(a).size() - 1; b++){
+                       capaciteItineraire += voisin.getSolution().get(a).get(b).getQuantite();
+                    }
+                    if(capaciteItineraire > 100){
+                        verif = false;
+                    }
+                }
+
+                //Si les contraintes sont respectés, on ajoute la solution dans la liste des voisins
+                if( verif == true){
+                    voisins.add(voisin);
+                }
+
+            }
+
+        }
+        return voisins;
+    }
+
+    public ArrayList<ArrayList<Noeud>> remplissageVoisin(){
+        ArrayList<ArrayList<Noeud>> solutionVoisin = new ArrayList<>();
+        for(int i = 0; i < solution.size(); i++){
+            ArrayList<Noeud> itineraire_i = new ArrayList<>();
+            for(int j = 0; j < solution.get(i).size(); j++){
+                Noeud n = solution.get(i).get(j);
+                Noeud noeud = new Noeud(n.getId(), n.getAbscisse(), n.getOrdonnee(), n.getQuantite());
+                itineraire_i.add(noeud);
+            }
+            solutionVoisin.add(itineraire_i);
+        }
+        return solutionVoisin;
+    }
+
+
+/*
     public boolean refaire(int tailleSol, int lgChange, int iti1, int changeStart){
         boolean refaire = false;
         for(int j=0; j<tailleSol; j++){
@@ -36,6 +132,7 @@ public class Solution {
         }
         return refaire;
     }
+
 
     //TODO A FAIRE
     public ArrayList<Solution> getVoisinage(int nbVoisinage){
@@ -108,7 +205,7 @@ public class Solution {
                     /*while ( !aRefaire && changeStart2 + lgChange > tailleIti2-1) {        //éviter de dépasser la limite
                     changeStart2 = r.nextInt(tailleIti2);
                 }*/
-                capaOk = true;
+ /*               capaOk = true;
                 if(!aRefaire){
                     int changeEnd2 = changeStart2 + lgChange;
 
@@ -145,9 +242,6 @@ public class Solution {
         return result;
     }
 
-    public void setSolution(ArrayList<ArrayList<Noeud>> solution) {
-        this.solution = solution;
-    }
 
     public ArrayList<ArrayList<Noeud>> intervertir(int iti1, int iti2, ArrayList<ArrayList<Noeud>> solution, int changeStart1, int changeStart2, int changeEnd1, int changeEnd2){
         ArrayList<Noeud> intermediaire = new ArrayList<>();
@@ -179,7 +273,7 @@ public class Solution {
 
         return solutionIntermediaire;
     }
-
+*/
     @Override
     public String toString(){
         String stringSol = "Solution: \n";

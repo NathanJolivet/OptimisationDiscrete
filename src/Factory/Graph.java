@@ -112,8 +112,8 @@ public class Graph {
         return xmin;
     }
 
-    public static double decroissTemp(double t){
-        return t*0.5;
+    public static void decroissTemp(double t){
+        t *= 0.5;
     }
 
 
