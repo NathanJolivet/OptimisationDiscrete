@@ -47,7 +47,7 @@ public class Main {
                 DateFormat.MEDIUM,
                 DateFormat.MEDIUM, new Locale("EN","en")).format(new Date()));
 
-        Solution solAlgogen = graph1.algoGenetique(100);
+        Solution solAlgogen = graph1.algoGenetique(10000);
         System.out.println(solAlgogen);
         System.out.println(solAlgogen.getCoutTotal());
 

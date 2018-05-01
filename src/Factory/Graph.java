@@ -119,7 +119,7 @@ public class Graph {
     public Solution algoGenetique(int n){
 
         ArrayList<Solution> population = new ArrayList<>();
-        int nbPopulation = 100;
+        int nbPopulation = 10000;
 
         //Remplissage population
 
