@@ -14,28 +14,22 @@ public class Main {
 
         //---------------------------------------------------GRAPHE 1
         Graph graph1 = new Graph("data01.txt", "graph1");
-        Graph graph2 = new Graph("data02.txt", "graph2");
-        Graph graph3 = new Graph("data03.txt", "graph3");
-        Graph graph4 = new Graph("data04.txt", "graph4");
-        Graph graph5 = new Graph("data05.txt", "graph5");
-
         System.out.println(graph1);
         Solution solInitiale1 = graph1.getSolutionInitiale();
         System.out.println(solInitiale1);
         System.out.println("Coût de la solution initiale:   " + solInitiale1.getCoutTotal() + "\n\n");
         System.out.println("-------------------------------RECUIT SIMULE GRAPHE 1-------------------------------");
 
-        Solution solRecuit = graph1.recuitSimule(100, 100);
+        Solution solRecuit = graph1.recuitSimule(100, 100);         //(n1, n2)
         System.out.println(solRecuit);
         System.out.println("Coût de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
 
         System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 1-------------------------------");
 
- //       System.out.println("cout de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 1-------------------------------");
 
-        Solution solAlgogen = graph1.algoGenetique(100);
+        Solution solAlgogen = graph1.algoGenetique(100);        //nbGenerations
         System.out.println(solAlgogen);
         System.out.println(solAlgogen.getCoutTotal());
 
@@ -53,7 +47,7 @@ public class Main {
         System.out.println("Coût de la solution initiale:   " + solInitiale2.getCoutTotal() + "\n\n");
         System.out.println("-------------------------------RECUIT SIMULE GRAPHE 2-------------------------------");
 
-        Solution solRecuit2 = graph2.recuitSimule(100, 100);
+        Solution solRecuit2 = graph2.recuitSimule(100, 100);         //(n1, n2)
         System.out.println(solRecuit2);
         System.out.println("Coût de la solution du recuit:   " + solRecuit2.getCoutTotal() + "\n");
 
@@ -62,7 +56,7 @@ public class Main {
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 2-------------------------------");
 
-        Solution solAlgogen2 = graph2.algoGenetique(100);
+        Solution solAlgogen2 = graph2.algoGenetique(100);        //nbGenerations
         System.out.println(solAlgogen2);
         System.out.println(solAlgogen2.getCoutTotal());
 
@@ -81,7 +75,7 @@ public class Main {
         System.out.println("Coût de la solution initiale:   " + solInitiale3.getCoutTotal() + "\n\n");
         System.out.println("-------------------------------RECUIT SIMULE GRAPHE 3-------------------------------");
 
-        Solution solRecuit3 = graph3.recuitSimule(100, 100);
+        Solution solRecuit3 = graph3.recuitSimule(100, 100);         //(n1, n2)
         System.out.println(solRecuit3);
         System.out.println("Coût de la solution du recuit:   " + solRecuit3.getCoutTotal() + "\n");
 
@@ -90,7 +84,7 @@ public class Main {
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 3-------------------------------");
 
-        Solution solAlgogen3 = graph3.algoGenetique(100);
+        Solution solAlgogen3 = graph3.algoGenetique(100);        //nbGenerations
         System.out.println(solAlgogen3);
         System.out.println(solAlgogen3.getCoutTotal());
 
@@ -106,7 +100,7 @@ public class Main {
         System.out.println("Coût de la solution initiale:   " + solInitiale4.getCoutTotal() + "\n\n");
         System.out.println("-------------------------------RECUIT SIMULE GRAPHE 4-------------------------------");
 
-        Solution solRecuit4 = graph4.recuitSimule(100, 100);
+        Solution solRecuit4 = graph4.recuitSimule(100, 100);         //(n1, n2)
         System.out.println(solRecuit4);
         System.out.println("Coût de la solution du recuit:   " + solRecuit4.getCoutTotal() + "\n");
 
@@ -115,7 +109,7 @@ public class Main {
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 4-------------------------------");
 
-        Solution solAlgogen4 = graph4.algoGenetique(100);
+        Solution solAlgogen4 = graph4.algoGenetique(100);        //nbGenerations
         System.out.println(solAlgogen4);
         System.out.println(solAlgogen4.getCoutTotal());
 
@@ -131,7 +125,7 @@ public class Main {
         System.out.println("Coût de la solution initiale:   " + solInitiale5.getCoutTotal() + "\n\n");
         System.out.println("-------------------------------RECUIT SIMULE GRAPHE 5-------------------------------");
 
-        Solution solRecuit5 = graph5.recuitSimule(100, 100);
+        Solution solRecuit5 = graph5.recuitSimule(100, 100);         //(n1, n2)
         System.out.println(solRecuit5);
         System.out.println("Coût de la solution du recuit:   " + solRecuit5.getCoutTotal() + "\n");
 
@@ -140,7 +134,7 @@ public class Main {
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 5-------------------------------");
 
-        Solution solAlgogen5 = graph5.algoGenetique(100);
+        Solution solAlgogen5 = graph5.algoGenetique(100);        //nbGenerations
         System.out.println(solAlgogen5);
         System.out.println(solAlgogen5.getCoutTotal());
 
