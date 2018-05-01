@@ -116,10 +116,9 @@ public class Graph {
     //////////////////////////////////////////////////////fin recuit simule////////////////////////////////////////////////////////////
 
     //////////////////////////////////////////////////////ALGORITHME GENETIQUE////////////////////////////////////////////////////////////
-    public Solution algoGenetique(){
+    public Solution algoGenetique(int n){
 
         ArrayList<Solution> population = new ArrayList<>();
-        ArrayList<Integer> choixReproduction = new ArrayList<>();
         int nbPopulation = 100;
 
         //Remplissage population
@@ -135,47 +134,51 @@ public class Graph {
             population.add(voisinDuPrecedent);
         }
 
-        //REPRODUCTION
-        ArrayList<Solution> popReproduction = new ArrayList<>();
-        double coutMax = 0;
-        for (int i = 0; i < population.size(); i++){
-            if(population.get(i).getCoutTotal() > coutMax){
-                coutMax = population.get(i).getCoutTotal();
+        for(int a = 0; a < n; a++) {
+            //REPRODUCTION
+            ArrayList<Integer> choixReproduction = new ArrayList<>();
+            ArrayList<Solution> popReproduction = new ArrayList<>();
+
+            double coutMax = 0;
+            for (int i = 0; i < population.size(); i++) {
+                if (population.get(i).getCoutTotal() > coutMax) {
+                    coutMax = population.get(i).getCoutTotal();
+                }
             }
-        }
-        for(int i = 0; i < population.size(); i++){
-            double proba = coutMax + 10 - population.get(i).getCoutTotal();
-            int nbIndice = (int) proba;
-            for(int j = 0; j < nbIndice ; j++){
-                choixReproduction.add(i);
+            for (int i = 0; i < population.size(); i++) {
+                double proba = coutMax + 10 - population.get(i).getCoutTotal();
+                int nbIndice = (int) proba;
+                for (int j = 0; j < nbIndice; j++) {
+                    choixReproduction.add(i);
+                }
             }
-        }
 
-        Random random = new Random();
-        for(int i = 0; i < nbPopulation ; i++){
-            int choix = random.nextInt(choixReproduction.size());
-            int indice = choixReproduction.get(choix);
-            Solution solutionReproduction = population.get(indice);
-            popReproduction.add(solutionReproduction);
+            Random random = new Random();
+            for (int i = 0; i < nbPopulation; i++) {
+                int choix = random.nextInt(choixReproduction.size());
+                int indice = choixReproduction.get(choix);
+                Solution solutionReproduction = population.get(indice);
+                popReproduction.add(solutionReproduction);
 
-        }
+            }
 
-        population.clear();
-        population.addAll(popReproduction);
+            population.clear();
+            population.addAll(popReproduction);
 
-        //CROISEMENT
-        int size = population.size();
-        for(int i = 0; i < size; i+=2){
-            population.addAll(croisement(population.get(i), population.get(i+1)));
-        }
+            //CROISEMENT
+            int size = population.size();
+            for (int i = 0; i < size; i += 2) {
+                population.addAll(croisement(population.get(i), population.get(i + 1)));
+            }
 
-        //MUTATION
-        for (int i = 0; i < population.size(); i++){
+            //MUTATION
+            for (int i = 0; i < population.size(); i++) {
 
-            //1/4 chance pour un élément de muter
-            int doMutation = random.nextInt(4);
-            if(doMutation == 3) {
-                population.add(mutation(population.get(i)));
+                //1/4 chance pour un élément de muter
+                int doMutation = random.nextInt(4);
+                if (doMutation == 3) {
+                    population.add(mutation(population.get(i)));
+                }
             }
         }
 

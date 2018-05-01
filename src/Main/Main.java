@@ -28,7 +28,7 @@ public class Main {
         //System.out.println(solInitiale1);
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE-------------------------------");
-        Solution solAlgogen = graph1.algoGenetique();
+        Solution solAlgogen = graph1.algoGenetique(100);
         System.out.println(solAlgogen);
         System.out.println(solAlgogen.getCoutTotal());
         System.out.println("-------------------------------FIN ALGORITHME GENETIQUE-------------------------------");
