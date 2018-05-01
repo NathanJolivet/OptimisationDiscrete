@@ -92,9 +92,7 @@ public class Graph {
         Solution xmin = x;
         for(int i = 0; i < n1; i++){
             for (int j = 0 ; j < n2; j++){
-                int n = 30;
-                int rand1 = random.nextInt(n);
-                Solution y = x.getVoisinage(n).get(rand1);
+                Solution y = x.getVoisinage(1).get(0);
                 double deltaf = y.getCoutTotal() - x.getCoutTotal();
                 if(deltaf <= 0){
                     x = y;
