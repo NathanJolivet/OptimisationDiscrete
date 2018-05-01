@@ -19,15 +19,19 @@ public class Main {
 
         //Test du recuit simulé avec 50*50 itération
         System.out.println("-------------------------------RECUIT SIMULE-------------------------------");
-        //Solution solRecuit = graph1.recuitSimule(500, 500);
-        //System.out.println(solRecuit);
-        //System.out.println("cout de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
+        Solution solRecuit = graph1.recuitSimule(500, 500);
+        System.out.println(solRecuit);
+        System.out.println("cout de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
         System.out.println("-------------------------------FIN RECUIT SIMULE-------------------------------");
 
-        System.out.println(solInitiale1.getVoisinage(20) + "\n\n");
-        System.out.println(solInitiale1);
+        //System.out.println(solInitiale1.getVoisinage(20) + "\n\n");
+        //System.out.println(solInitiale1);
 
-        //graph1.algoGenetique();
+        System.out.println("-------------------------------ALGORITHME GENETIQUE-------------------------------");
+        Solution solAlgogen = graph1.algoGenetique();
+        System.out.println(solAlgogen);
+        System.out.println(solAlgogen.getCoutTotal());
+        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE-------------------------------");
 /*
         Graph graph3 = new Graph("data03.txt", "graph3");
         System.out.println(graph3);

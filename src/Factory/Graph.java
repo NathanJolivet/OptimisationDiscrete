@@ -2,7 +2,7 @@ package Factory;
 
 import ComplementRessource.Parser;
 
-import java.lang.reflect.Array;
+import javax.xml.bind.SchemaOutputResolver;
 import java.util.Random;
 
 import java.util.ArrayList;
@@ -32,9 +32,14 @@ public class Graph {
         }
 
     }
+
+    public String getNom() {
+        return nom;
+    }
+
     //////////////////////////////////////////////////////SOLUTION INITIALE////////////////////////////////////////////////////////////
     public Solution getSolutionInitiale(){
-        Solution solInitiale = new Solution();
+        Solution solInitiale = new Solution(this);
 
         int j = 0;
         while (!this.allNodesVisited()) {
@@ -75,15 +80,6 @@ public class Graph {
 
     //////////////////////////////////////////////////////fin solution initiale////////////////////////////////////////////////////////////
 
-
-    @Override
-    public String toString(){
-        String graph = "-------------------------\n" + nom + ":\n";
-        for(int i = 0; i<sommets.size(); i++) {
-            graph += "\t" + sommets.get(i) + "\n";
-        }
-        return graph + "-------------------------";
-    }
     //////////////////////////////////////////////////////RECUIT SIMULE////////////////////////////////////////////////////////////
     public Solution recuitSimule(int n1, int n2){
         Random random = new Random();
@@ -127,10 +123,9 @@ public class Graph {
         int nbPopulation = 100;
 
         //Remplissage population
+
         Solution solutionInitiale = this.getSolutionInitiale();
-        for(int i = 0; i < 20; i++) {
-            System.out.println(mutation(solutionInitiale));
-        }
+
         population.add(solutionInitiale);
         for(int i = 0; i < nbPopulation - 1; i++){
             Solution voisinDuPrecedent;
@@ -142,10 +137,8 @@ public class Graph {
 
         //REPRODUCTION
         ArrayList<Solution> popReproduction = new ArrayList<>();
-        //double coutTotalePopulation = 0;
         double coutMax = 0;
         for (int i = 0; i < population.size(); i++){
-            //coutTotalePopulation += population.get(i).getCoutTotal();
             if(population.get(i).getCoutTotal() > coutMax){
                 coutMax = population.get(i).getCoutTotal();
             }
@@ -170,18 +163,18 @@ public class Graph {
         population.clear();
         population.addAll(popReproduction);
 
-
         //CROISEMENT
-        for(int i = 0; i < population.size(); i+=2){
+        int size = population.size();
+        for(int i = 0; i < size; i+=2){
             population.addAll(croisement(population.get(i), population.get(i+1)));
         }
 
         //MUTATION
         for (int i = 0; i < population.size(); i++){
 
-            //1/8 chance pour un élément de muter
-            int doMutation = random.nextInt(8);
-            if(doMutation == 7) {
+            //1/4 chance pour un élément de muter
+            int doMutation = random.nextInt(4);
+            if(doMutation == 3) {
                 population.add(mutation(population.get(i)));
             }
         }
@@ -200,8 +193,11 @@ public class Graph {
     //TODO: ECHANGER QUE 1 NOEUD ?? car avec itineraire si rien en commun => quand on va le reagancer ca va redevenir la solution de depart
     //TODO: ATTENTION, TOUJOURS TESTER SI LES CONTRAINTES SONT RESPECTE
     public static ArrayList<Solution> croisement(Solution solution1, Solution solution2){
-        Solution newSol1 = new Solution();
-        Solution newSol2 = new Solution();
+
+        ArrayList<Solution> solutionsCroisees = new ArrayList<>();
+
+        Solution newSol1 = new Solution(solution1.getGraph());
+        Solution newSol2 = new Solution(solution2.getGraph());
         newSol1.setSolution(solution1.remplissageCopie());
         newSol2.setSolution(solution2.remplissageCopie());
 
@@ -209,16 +205,39 @@ public class Graph {
         int indiceIti1 = random.nextInt(newSol1.getSolution().size());
         int indiceIti2 = random.nextInt(newSol2.getSolution().size());
 
-        ArrayList<Noeud> itineraire1 = solution1.getSolution().get(indiceIti1);
-        ArrayList<Noeud> itineraire2 = solution2.getSolution().get(indiceIti2);
-        ArrayList<Noeud> itineraire_a_Echanger = new ArrayList<>();
 
-        itineraire_a_Echanger = itineraire1;
-        solution1.getSolution().set(indiceIti1, itineraire2);
-        solution2.getSolution().set(indiceIti2, itineraire_a_Echanger);
+        ArrayList<Noeud> itineraire_a_Echanger1 = new ArrayList<>();
+        itineraire_a_Echanger1.addAll(newSol1.getSolution().get(indiceIti1));
+        ArrayList<Noeud> itineraire_a_Echanger2 = new ArrayList<>();
+        itineraire_a_Echanger2.addAll(newSol2.getSolution().get(indiceIti2));
 
+        newSol1.getSolution().get(indiceIti1).clear();
+        newSol2.getSolution().get(indiceIti2).clear();
 
-        return null;
+        for(int i = 0; i < itineraire_a_Echanger1.size(); i++){
+            if(itineraire_a_Echanger2.contains(itineraire_a_Echanger1.get(i))){
+                newSol2.getSolution().get(indiceIti2).add(itineraire_a_Echanger1.get(i));
+            }
+            else{
+                newSol1.getSolution().get(indiceIti1).add(itineraire_a_Echanger1.get(i));
+            }
+        }
+
+        for(int i = 0; i < itineraire_a_Echanger2.size(); i++){
+            int t = 0;
+            if(itineraire_a_Echanger1.contains(itineraire_a_Echanger2.get(i))){
+                newSol1.getSolution().get(indiceIti1).add(t, itineraire_a_Echanger2.get(i));
+                t++;
+            }
+            else{
+                newSol2.getSolution().get(indiceIti2).add(itineraire_a_Echanger2.get(i));
+            }
+        }
+
+        solutionsCroisees.add(newSol1);
+        solutionsCroisees.add(newSol2);
+
+        return solutionsCroisees;
     }
 
     //TODO: Probabilité de 1/4 ou de 1/8 de muter, si mute, echanger 2 noeuds entre 2 itineraires differents d'une solution
@@ -226,12 +245,12 @@ public class Graph {
     public static Solution mutation(Solution solution){
 
         Random random = new Random();
-        Solution solutionMute = new Solution();
+        Solution solutionMute = new Solution(solution.getGraph());
         boolean verif = false;
 
         while(!verif) {
 
-            solutionMute = new Solution();
+            solutionMute = new Solution(solution.getGraph());
             solutionMute.setSolution(solution.remplissageCopie());
 
             // Choix de nos randoms
@@ -266,16 +285,7 @@ public class Graph {
 
 
             //On vérifie que la solution respecte les contraintes: C <= 100
-            verif = true;
-            for(int i = 0; i < solutionMute.getSolution().size(); i++){
-                int capaciteItineraire = 0;
-                for(int b = 0; b < solutionMute.getSolution().get(i).size(); b++){
-                    capaciteItineraire += solutionMute.getSolution().get(i).get(b).getQuantite();
-                }
-                if(capaciteItineraire > 100){
-                    verif = false;
-                }
-            }
+            verif = solutionMute.contraintesVerifie();
 
         }
 
@@ -283,6 +293,15 @@ public class Graph {
     }
 
     //////////////////////////////////////////////////////fin algorithme genetique////////////////////////////////////////////////////////////
+
+    @Override
+    public String toString(){
+        String graph = "-------------------------\n" + nom + ":\n";
+        for(int i = 0; i<sommets.size(); i++) {
+            graph += "\t" + sommets.get(i) + "\n";
+        }
+        return graph + "-------------------------";
+    }
 
 }
 
