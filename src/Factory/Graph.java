@@ -122,10 +122,10 @@ public class Graph {
     //////////////////////////////////////////////////////fin recuit simule////////////////////////////////////////////////////////////
 
     //////////////////////////////////////////////////////ALGORITHME GENETIQUE////////////////////////////////////////////////////////////
-    public Solution algoGenetique(int n){
+    public Solution algoGenetique(int nbGeneration){
 
         ArrayList<Solution> population = new ArrayList<>();
-        int nbPopulation = 10000;
+        int nbPopulation = 1000;
 
         //Remplissage population
 
@@ -140,7 +140,7 @@ public class Graph {
             population.add(voisinDuPrecedent);
         }
 
-        for(int a = 0; a < n; a++) {
+        for(int a = 0; a < nbGeneration; a++) {
             //REPRODUCTION
             ArrayList<Integer> choixReproduction = new ArrayList<>();
             ArrayList<Solution> popReproduction = new ArrayList<>();
@@ -199,8 +199,6 @@ public class Graph {
         return population.get(indice_best_sol);
     }
 
-    //TODO: ECHANGER QUE 1 NOEUD ?? car avec itineraire si rien en commun => quand on va le reagancer ca va redevenir la solution de depart
-    //TODO: ATTENTION, TOUJOURS TESTER SI LES CONTRAINTES SONT RESPECTE
     public static ArrayList<Solution> croisement(Solution solution1, Solution solution2){
 
         ArrayList<Solution> solutionsCroisees = new ArrayList<>();
@@ -249,8 +247,6 @@ public class Graph {
         return solutionsCroisees;
     }
 
-    //TODO: Probabilité de 1/4 ou de 1/8 de muter, si mute, echanger 2 noeuds entre 2 itineraires differents d'une solution
-    //TODO: ATTENTION, TOUJOURS TESTER SI LES CONTRAINTES SONT RESPECTE
     public static Solution mutation(Solution solution){
 
         Random random = new Random();

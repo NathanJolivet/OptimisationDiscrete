@@ -14,6 +14,11 @@ public class Main {
 
         //---------------------------------------------------GRAPHE 1
         Graph graph1 = new Graph("data01.txt", "graph1");
+        Graph graph2 = new Graph("data02.txt", "graph2");
+        Graph graph3 = new Graph("data03.txt", "graph3");
+        Graph graph4 = new Graph("data04.txt", "graph4");
+        Graph graph5 = new Graph("data05.txt", "graph5");
+
         System.out.println(graph1);
         Solution solInitiale1 = graph1.getSolutionInitiale();
         System.out.println(solInitiale1);
@@ -26,6 +31,7 @@ public class Main {
 
         System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 1-------------------------------");
 
+ //       System.out.println("cout de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 1-------------------------------");
 
