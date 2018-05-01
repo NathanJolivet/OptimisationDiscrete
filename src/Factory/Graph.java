@@ -120,7 +120,7 @@ public class Graph {
 
         ArrayList<Solution> population = new ArrayList<>();
         ArrayList<Integer> choixReproduction = new ArrayList<>();
-        int nbPopulation = 100;
+        int nbPopulation = 100000;
 
         //Remplissage population
 
