@@ -2,7 +2,10 @@ package Main;
 
 import Factory.*;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 public class Main {
@@ -15,17 +18,34 @@ public class Main {
         //Solution initiale
         Solution solInitiale1 = graph1.getSolutionInitiale();
         System.out.println(solInitiale1);
-        System.out.println(" cout de la solution initiale:   " + solInitiale1.getCoutTotal() + "\n\n");
+        System.out.println(" coût de la solution initiale:   " + solInitiale1.getCoutTotal() + "\n\n");
 
         //Test du recuit simulé avec 50*50 itération
         System.out.println("-------------------------------RECUIT SIMULE-------------------------------");
-        //Solution solRecuit = graph1.recuitSimule(500, 500);
-        //System.out.println(solRecuit);
-        //System.out.println("cout de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
+
+        System.out.println(DateFormat.getDateTimeInstance(
+                DateFormat.MEDIUM,
+                DateFormat.MEDIUM, new Locale("EN","en")).format(new Date()));
+
+        Solution solRecuit = graph1.recuitSimule(10000, 10000);
+
+        System.out.println(solRecuit);
+
+
+        System.out.println(DateFormat.getDateTimeInstance(
+                DateFormat.MEDIUM,
+                DateFormat.MEDIUM, new Locale("EN","en")).format(new Date()));
+
+
+        System.out.println("coût de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
         System.out.println("-------------------------------FIN RECUIT SIMULE-------------------------------");
+
+        /*
 
         System.out.println(solInitiale1.getVoisinage(20) + "\n\n");
         System.out.println(solInitiale1);
+        */
+
 
         //graph1.algoGenetique();
 /*
