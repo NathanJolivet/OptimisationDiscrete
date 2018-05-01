@@ -88,7 +88,13 @@ public class Graph {
         Solution xmin = x;
         for(int i = 0; i < n1; i++){
             for (int j = 0 ; j < n2; j++){
-                Solution y = x.getVoisinage(1).get(0);
+                ArrayList<Solution> voisins = x.getVoisinage(100);
+                Solution y = voisins.get(0);
+                for (int a = 1; a < voisins.size(); a++){
+                    if(y.getCoutTotal() > voisins.get(a).getCoutTotal()){
+                        y = voisins.get(a);
+                    }
+                }
                 double deltaf = y.getCoutTotal() - x.getCoutTotal();
                 if(deltaf <= 0){
                     x = y;
