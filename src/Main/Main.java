@@ -56,13 +56,11 @@ public class Main {
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 2-------------------------------");
 
-        Solution solAlgogen2 = graph2.algoGenetique(100);        //nbGenerations
+        Solution solAlgogen2 = graph2.algoGenetique(1000);        //nbGenerations
         System.out.println(solAlgogen2);
         System.out.println(solAlgogen2.getCoutTotal());
 
         System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 2------------------------------- \n");
-
-
 */
 
 
@@ -84,13 +82,14 @@ public class Main {
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 3-------------------------------");
 
-        Solution solAlgogen3 = graph3.algoGenetique(100);        //nbGenerations
+        Solution solAlgogen3 = graph3.algoGenetique(1000);        //nbGenerations
         System.out.println(solAlgogen3);
         System.out.println(solAlgogen3.getCoutTotal());
 
         System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 3------------------------------- \n");
-
 */
+
+
 /*
         ///////////////////////////////////////////////////////////////////////  GRAPHE 4  ///////////////////////////////////////////////////////////////////////
         Graph graph4 = new Graph("data04.txt", "graph4");
@@ -109,12 +108,13 @@ public class Main {
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 4-------------------------------");
 
-        Solution solAlgogen4 = graph4.algoGenetique(100);        //nbGenerations
+        Solution solAlgogen4 = graph4.algoGenetique(1000);        //nbGenerations
         System.out.println(solAlgogen4);
         System.out.println(solAlgogen4.getCoutTotal());
 
         System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 4------------------------------- \n");
 */
+
 
 /*
         ///////////////////////////////////////////////////////////////////////  GRAPHE 5  ///////////////////////////////////////////////////////////////////////
@@ -134,13 +134,13 @@ public class Main {
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 5-------------------------------");
 
-        Solution solAlgogen5 = graph5.algoGenetique(100);        //nbGenerations
+        Solution solAlgogen5 = graph5.algoGenetique(1000);        //nbGenerations
         System.out.println(solAlgogen5);
         System.out.println(solAlgogen5.getCoutTotal());
 
         System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 5------------------------------- \n");
-
 */
+
 
     }
 
