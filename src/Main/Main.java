@@ -12,7 +12,7 @@ public class Main {
 
         //GRAPHES  (décommentez un graphe pour qu'il s'exécute)
 
-        //---------------------------------------------------GRAPHE 1
+        ///////////////////////////////////////////////////////////////////////  GRAPHE 1  ///////////////////////////////////////////////////////////////////////
         Graph graph1 = new Graph("data01.txt", "graph1");
         System.out.println(graph1);
         Solution solInitiale1 = graph1.getSolutionInitiale();
@@ -24,22 +24,22 @@ public class Main {
         System.out.println(solRecuit);
         System.out.println("Coût de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
 
-        System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 1-------------------------------");
+        System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 1------------------------------- \n");
 
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 1-------------------------------");
 
-        Solution solAlgogen = graph1.algoGenetique(100);        //nbGenerations
+        Solution solAlgogen = graph1.algoGenetique(1000);        //nbGenerations
         System.out.println(solAlgogen);
         System.out.println(solAlgogen.getCoutTotal());
 
-        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 1-------------------------------");
+        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 1------------------------------- \n");
 
 
 
 /*
 
-        //---------------------------------------------------GRAPHE 2
+        ///////////////////////////////////////////////////////////////////////  GRAPHE 2  ///////////////////////////////////////////////////////////////////////
         Graph graph2 = new Graph("data02.txt", "graph2");
         System.out.println(graph2);
         Solution solInitiale2 = graph2.getSolutionInitiale();
@@ -51,7 +51,7 @@ public class Main {
         System.out.println(solRecuit2);
         System.out.println("Coût de la solution du recuit:   " + solRecuit2.getCoutTotal() + "\n");
 
-        System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 2-------------------------------");
+        System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 2------------------------------- \n");
 
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 2-------------------------------");
@@ -60,14 +60,14 @@ public class Main {
         System.out.println(solAlgogen2);
         System.out.println(solAlgogen2.getCoutTotal());
 
-        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 2-------------------------------");
+        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 2------------------------------- \n");
 
 
 */
 
 
 /*
-        //---------------------------------------------------GRAPHE 3
+        ///////////////////////////////////////////////////////////////////////  GRAPHE 3  ///////////////////////////////////////////////////////////////////////
         Graph graph3 = new Graph("data03.txt", "graph3");
         System.out.println(graph3);
         Solution solInitiale3 = graph3.getSolutionInitiale();
@@ -79,7 +79,7 @@ public class Main {
         System.out.println(solRecuit3);
         System.out.println("Coût de la solution du recuit:   " + solRecuit3.getCoutTotal() + "\n");
 
-        System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 3-------------------------------");
+        System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 3------------------------------- \n");
 
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 3-------------------------------");
@@ -88,11 +88,11 @@ public class Main {
         System.out.println(solAlgogen3);
         System.out.println(solAlgogen3.getCoutTotal());
 
-        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 3-------------------------------");
+        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 3------------------------------- \n");
 
 */
 /*
-        //---------------------------------------------------GRAPHE 4
+        ///////////////////////////////////////////////////////////////////////  GRAPHE 4  ///////////////////////////////////////////////////////////////////////
         Graph graph4 = new Graph("data04.txt", "graph4");
         System.out.println(graph4);
         Solution solInitiale4 = graph4.getSolutionInitiale();
@@ -104,7 +104,7 @@ public class Main {
         System.out.println(solRecuit4);
         System.out.println("Coût de la solution du recuit:   " + solRecuit4.getCoutTotal() + "\n");
 
-        System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 4-------------------------------");
+        System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 4------------------------------- \n");
 
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 4-------------------------------");
@@ -113,11 +113,11 @@ public class Main {
         System.out.println(solAlgogen4);
         System.out.println(solAlgogen4.getCoutTotal());
 
-        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 4-------------------------------");
+        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 4------------------------------- \n");
 */
 
 /*
-        //---------------------------------------------------GRAPHE 5
+        ///////////////////////////////////////////////////////////////////////  GRAPHE 5  ///////////////////////////////////////////////////////////////////////
         Graph graph5 = new Graph("data05.txt", "graph4");
         System.out.println(graph5);
         Solution solInitiale5 = graph5.getSolutionInitiale();
@@ -129,7 +129,7 @@ public class Main {
         System.out.println(solRecuit5);
         System.out.println("Coût de la solution du recuit:   " + solRecuit5.getCoutTotal() + "\n");
 
-        System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 5-------------------------------");
+        System.out.println("-------------------------------FIN RECUIT SIMULE GRAPHE 5------------------------------- \n");
 
 
         System.out.println("-------------------------------ALGORITHME GENETIQUE GRAPHE 5-------------------------------");
@@ -138,7 +138,7 @@ public class Main {
         System.out.println(solAlgogen5);
         System.out.println(solAlgogen5.getCoutTotal());
 
-        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 5-------------------------------");
+        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 5------------------------------- \n");
 
 */
 
