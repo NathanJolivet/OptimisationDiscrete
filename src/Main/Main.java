@@ -13,6 +13,11 @@ public class Main {
     public static void main(String[] args) {
 
         Graph graph1 = new Graph("data01.txt", "graph1");
+        Graph graph2 = new Graph("data02.txt", "graph2");
+        Graph graph3 = new Graph("data03.txt", "graph3");
+        Graph graph4 = new Graph("data04.txt", "graph4");
+        Graph graph5 = new Graph("data05.txt", "graph5");
+
         System.out.println(graph1);
 
         //Solution initiale
@@ -23,18 +28,18 @@ public class Main {
         //Test du recuit simulé avec 50*50 itération
         System.out.println("-------------------------------RECUIT SIMULE-------------------------------");
 
- /*       System.out.println(DateFormat.getDateTimeInstance(
+        System.out.println(DateFormat.getDateTimeInstance(
                 DateFormat.MEDIUM,
                 DateFormat.MEDIUM, new Locale("EN","en")).format(new Date()));
-*/
+
         Solution solRecuit = graph1.recuitSimule(100, 100);
         System.out.println(solRecuit);
 
- /*       System.out.println(DateFormat.getDateTimeInstance(
+        System.out.println(DateFormat.getDateTimeInstance(
                 DateFormat.MEDIUM,
                 DateFormat.MEDIUM, new Locale("EN","en")).format(new Date()));
-*/
-        System.out.println("cout de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
+
+ //       System.out.println("cout de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
 
 
         System.out.println("-------------------------------FIN RECUIT SIMULE-------------------------------");
@@ -42,19 +47,19 @@ public class Main {
         //System.out.println(solInitiale1.getVoisinage(20) + "\n\n");
         //System.out.println(solInitiale1);
 
-/*        System.out.println("-------------------------------ALGORITHME GENETIQUE-------------------------------");
-        System.out.println(DateFormat.getDateTimeInstance(
+        System.out.println("-------------------------------ALGORITHME GENETIQUE-------------------------------");
+/*        System.out.println(DateFormat.getDateTimeInstance(
                 DateFormat.MEDIUM,
                 DateFormat.MEDIUM, new Locale("EN","en")).format(new Date()));
-
+*/
         Solution solAlgogen = graph1.algoGenetique(1000);
         System.out.println(solAlgogen);
         System.out.println(solAlgogen.getCoutTotal());
 
-        System.out.println(DateFormat.getDateTimeInstance(
+/*        System.out.println(DateFormat.getDateTimeInstance(
                 DateFormat.MEDIUM,
                 DateFormat.MEDIUM, new Locale("EN","en")).format(new Date()));
-*/        System.out.println("-------------------------------FIN ALGORITHME GENETIQUE-------------------------------");
+ */       System.out.println("-------------------------------FIN ALGORITHME GENETIQUE-------------------------------");
 /*
         Graph graph3 = new Graph("data03.txt", "graph3");
         System.out.println(graph3);
