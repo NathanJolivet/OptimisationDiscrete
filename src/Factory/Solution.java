@@ -6,8 +6,10 @@ import java.util.Random;
 public class Solution {
 
     private ArrayList<ArrayList<Noeud>> solution = new ArrayList<>();
+    Graph graph;
 
-    public Solution(){
+    public Solution(Graph graph){
+        this.graph = graph;
     }
 
     public ArrayList<ArrayList<Noeud>> getSolution() {
@@ -16,6 +18,10 @@ public class Solution {
 
     public void setSolution(ArrayList<ArrayList<Noeud>> solution) {
         this.solution = solution;
+    }
+
+    public Graph getGraph() {
+        return graph;
     }
 
     public double getCoutTotal(){
@@ -39,7 +45,7 @@ public class Solution {
 
             while(!verif) {
 
-                Solution voisin = new Solution();
+                Solution voisin = new Solution(this.getGraph());
                 voisin.setSolution(this.remplissageCopie());
 
                 // Choix de nos randoms
@@ -97,16 +103,7 @@ public class Solution {
 
 
                 //On vérifie que la solution respecte les contraintes: C <= 100
-                verif = true;
-                for(int a = 0; a < voisin.getSolution().size(); a++){
-                    int capaciteItineraire = 0;
-                    for(int b = 0; b < voisin.getSolution().get(a).size(); b++){
-                       capaciteItineraire += voisin.getSolution().get(a).get(b).getQuantite();
-                    }
-                    if(capaciteItineraire > 100){
-                        verif = false;
-                    }
-                }
+                verif = voisin.contraintesVerifie();
 
                 //Si les contraintes sont respectées, on ajoute la solution dans la liste des voisins
                 if( verif == true){
@@ -133,12 +130,30 @@ public class Solution {
         return solutionVoisin;
     }
 
+    public boolean contraintesVerifie(){
+
+        for(int i = 0; i < this.getSolution().size(); i++){
+            int capaciteItineraire = 0;
+            for(int j = 0; j < this.getSolution().get(i).size(); j++){
+                capaciteItineraire += this.getSolution().get(i).get(j).getQuantite();
+            }
+            if(capaciteItineraire > 100){
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     @Override
     public String toString(){
-        String stringSol = "Solution: \n";
+        String stringSol = "Solution du " + graph.getNom() + ":\n";
         for(int i = 0; i < solution.size(); i++){
-            stringSol += "\t" + solution.get(i) + "\n";
+            stringSol += "\t" + solution.get(i).get(0).getId()+ " => ";
+            for(int j = 1; j < solution.get(i).size()-1; j++) {
+                stringSol += solution.get(i).get(j).getId() + " (" + solution.get(i).get(j).getQuantite() + ") => ";
+            }
+            stringSol += solution.get(i).get(solution.get(i).size()-1).getId()+  "\n" ;
         }
         return stringSol;
     }
