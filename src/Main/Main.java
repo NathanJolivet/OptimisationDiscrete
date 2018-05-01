@@ -2,6 +2,7 @@ package Main;
 
 import Factory.*;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
@@ -18,17 +19,26 @@ public class Main {
 
         //Test du recuit simulé avec 50*50 itération
         System.out.println("-------------------------------RECUIT SIMULE-------------------------------");
-        Solution solRecuit = graph1.recuitSimule(50, 50);
-        System.out.println(solRecuit);
-        System.out.println("cout de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
+        //Solution solRecuit = graph1.recuitSimule(500, 500);
+        //System.out.println(solRecuit);
+        //System.out.println("cout de la solution du recuit:   " + solRecuit.getCoutTotal() + "\n");
         System.out.println("-------------------------------FIN RECUIT SIMULE-------------------------------");
 
-        System.out.println(solInitiale1.getVoisinage(1) + "\n\n");
+        System.out.println(solInitiale1.getVoisinage(20) + "\n\n");
         System.out.println(solInitiale1);
 
-        graph1.algoGenetique();
-
-
+        //graph1.algoGenetique();
+/*
+        Graph graph3 = new Graph("data03.txt", "graph3");
+        System.out.println(graph3);
+        Solution solInitiale3 = graph3.getSolutionInitiale();
+        System.out.println(solInitiale3);
+        System.out.println(solInitiale3.getCoutTotal());
+        ArrayList<Solution> sol = solInitiale3.getVoisinage(5);
+        for(int i = 0; i < sol.size(); i++){
+            System.out.println(sol.get(i).getCoutTotal());
+        }
+*/
 
 
 

@@ -40,7 +40,7 @@ public class Solution {
             while(!verif) {
 
                 Solution voisin = new Solution();
-                voisin.setSolution(this.remplissageVoisin());
+                voisin.setSolution(this.remplissageCopie());
 
                 // Choix de nos randoms
                 int itineraire1 = random.nextInt(voisin.getSolution().size());
@@ -67,10 +67,10 @@ public class Solution {
                     debutEchangeFrom2 = 1;
                 }
                 if (x > 0) {
-                    debutEchangeFrom1 = random.nextInt(x) + 1;
+                    debutEchangeFrom1 = random.nextInt(x+1) + 1;
                 }
                 if (y > 0) {
-                    debutEchangeFrom2 = random.nextInt(y) + 1;
+                    debutEchangeFrom2 = random.nextInt(y+1) + 1;
                 }
 
                 //Echange des noeuds entre les deux itinéraires
@@ -100,7 +100,7 @@ public class Solution {
                 verif = true;
                 for(int a = 0; a < voisin.getSolution().size(); a++){
                     int capaciteItineraire = 0;
-                    for(int b = 0; b < voisin.getSolution().get(a).size() - 1; b++){
+                    for(int b = 0; b < voisin.getSolution().get(a).size(); b++){
                        capaciteItineraire += voisin.getSolution().get(a).get(b).getQuantite();
                     }
                     if(capaciteItineraire > 100){
@@ -119,7 +119,7 @@ public class Solution {
         return voisins;
     }
 
-    public ArrayList<ArrayList<Noeud>> remplissageVoisin(){
+    public ArrayList<ArrayList<Noeud>> remplissageCopie(){
         ArrayList<ArrayList<Noeud>> solutionVoisin = new ArrayList<>();
         for(int i = 0; i < solution.size(); i++){
             ArrayList<Noeud> itineraire_i = new ArrayList<>();
