@@ -37,8 +37,8 @@ public class Main {
 
 
 
-/*
 
+/*
         ///////////////////////////////////////////////////////////////////////  GRAPHE 2  ///////////////////////////////////////////////////////////////////////
         Graph graph2 = new Graph("data02.txt", "graph2");
         System.out.println(graph2);
@@ -140,7 +140,6 @@ public class Main {
 
         System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 5------------------------------- \n");
 */
-
 
     }
 
