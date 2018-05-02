@@ -118,7 +118,7 @@ public class Main {
 
 /*
         ///////////////////////////////////////////////////////////////////////  GRAPHE 5  ///////////////////////////////////////////////////////////////////////
-        Graph graph5 = new Graph("data05.txt", "graph4");
+        Graph graph5 = new Graph("data05.txt", "graph5");
         System.out.println(graph5);
         Solution solInitiale5 = graph5.getSolutionInitiale();
         System.out.println(solInitiale5);
