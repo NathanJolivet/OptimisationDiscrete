@@ -31,7 +31,7 @@ public class Main {
 
         Solution solAlgogen = graph1.algoGenetique(1000);        //nbGenerations
         System.out.println(solAlgogen);
-        System.out.println(solAlgogen.getCoutTotal());
+        System.out.println("Coût de la solution de l'algorithme génétique:   " + solAlgogen.getCoutTotal());
 
         System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 1------------------------------- \n");
 
@@ -58,7 +58,7 @@ public class Main {
 
         Solution solAlgogen2 = graph2.algoGenetique(1000);        //nbGenerations
         System.out.println(solAlgogen2);
-        System.out.println(solAlgogen2.getCoutTotal());
+        System.out.println("Coût de la solution de l'algorithme génétique:   " + solAlgogen2.getCoutTotal());
 
         System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 2------------------------------- \n");
 */
@@ -84,7 +84,7 @@ public class Main {
 
         Solution solAlgogen3 = graph3.algoGenetique(1000);        //nbGenerations
         System.out.println(solAlgogen3);
-        System.out.println(solAlgogen3.getCoutTotal());
+        System.out.println("Coût de la solution de l'algorithme génétique:   " + solAlgogen3.getCoutTotal());
 
         System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 3------------------------------- \n");
 */
@@ -110,7 +110,7 @@ public class Main {
 
         Solution solAlgogen4 = graph4.algoGenetique(1000);        //nbGenerations
         System.out.println(solAlgogen4);
-        System.out.println(solAlgogen4.getCoutTotal());
+        System.out.println("Coût de la solution de l'algorithme génétique:   " + solAlgogen4.getCoutTotal());
 
         System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 4------------------------------- \n");
 */
@@ -136,7 +136,7 @@ public class Main {
 
         Solution solAlgogen5 = graph5.algoGenetique(1000);        //nbGenerations
         System.out.println(solAlgogen5);
-        System.out.println(solAlgogen5.getCoutTotal());
+        System.out.println("Coût de la solution de l'algorithme génétique:   " + solAlgogen5.getCoutTotal());
 
         System.out.println("-------------------------------FIN ALGORITHME GENETIQUE GRAPHE 5------------------------------- \n");
 */
